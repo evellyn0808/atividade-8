@@ -1,1 +1,5 @@
-# atividade-8
+O Sistema de Portaria Inteligente techzone é uma aplicação web simples desenvolvida com HTML, CSS e JavaScript que simula o controle de acesso de colaboradores a uma empresa. O objetivo do sistema é verificar se um usuário está autorizado a entrar no ambiente com base em duas informações: seu nome e o horário atual.
+
+A aplicação funciona a partir de uma lista previamente definida de colaboradores autorizados. Quando o usuário digita seu nome e informa a hora atual (em formato de 0 a 23), o sistema realiza uma verificação utilizando a linguagem JavaScript. Primeiro, ele confere se o nome informado está presente no array de usuários permitidos. Em seguida, verifica se o horário está dentro do limite estabelecido, que é antes das 22 horas.
+
+Caso o nome esteja cadastrado e o horário seja válido, o sistema exibe a mensagem “Acesso Permitido”, destacada na cor verde, juntamente com uma saudação personalizada ao colaborador. Se o nome não estiver na lista ou o acesso for solicitado após as 22h, o sistema informa que o acesso foi negado, exibindo a mensagem em vermelho.

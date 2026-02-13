@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Portaria - TechZone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 8px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portaria Inteligente - TechZone</h1>
+    <p>Digite seu nome e a hora atual para verificar o acesso.</p>
+    
+    <label for="nome">Nome do Colaborador:</label>
+    <input type="text" id="nome" placeholder="Ex: Ana"><br>
+    
+    <label for="hora">Hora Atual (0-23):</label>
+    <input type="number" id="hora" min="0" max="23" placeholder="Ex: 14"><br>
+    
+    <button onclick="verificarAcesso()">Verificar Acesso</button>
+    
+    <div id="resultado"></div>
+
+    <script>
+        // 1. Criando o Array de colaboradores autorizados
+        let autorizados = ["Ana", "Carlos", "Marta", "João"];
+
+        // Função para verificar o acesso
+        function verificarAcesso() {
+            // 2. Entrada de Dados: Capturando valores dos inputs
+            let nomeUsuario = document.getElementById("nome").value.trim();
+            let horaAtual = Number(document.getElementById("hora").value);
+
+            // 3. Lógica de Verificação: Usando includes() e operadores lógicos
+            let resultado = document.getElementById("resultado");
+            
+            if (autorizados.includes(nomeUsuario)) {
+                if (horaAtual < 22) {
+                    resultado.textContent = "Acesso Permitido. Bem-vindo, " + nomeUsuario + "!";
+                    resultado.style.color = "green";
+                } else {
+                    resultado.textContent = "Acesso Negado: Fora do horário permitido (após as 22h).";
+                    resultado.style.color = "red";
+                }
+            } else {
+                resultado.textContent = "Acesso Negado: Usuário não cadastrado.";
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
